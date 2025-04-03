@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>기억의 거리</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #f5f5f5;
+      font-family: 'Georgia', serif;
+      padding: 40px 20px;
+      line-height: 1.8;
+      font-size: 20px;
+      max-width: 700px;
+      margin: auto;
+      white-space: pre-wrap;
+    }
+
+    #passwordSection {
+      text-align: center;
+      margin-top: 100px;
+    }
+
+    #passwordInput {
+      padding: 10px;
+      font-size: 24px;
+      width: 120px;
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      margin-left: 10px;
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 20px;
+      color: #ff6b6b;
+    }
+
+    #storySection {
+      display: none;
+      animation: fadeIn 3s ease-in;
+      margin-top: 60px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .highlight {
+      color: #aaa;
+      font-style: italic;
+    }
+
+    .quote {
+      margin-top: 30px;
+      font-size: 22px;
+      color: #ccc;
+      text-align: center;
+    }
+
+    .quote::before {
+      content: "“";
+    }
+
+    .quote::after {
+      content: "”";
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 비밀번호 입력 섹션 -->
+  <div id="passwordSection">
+    <h1>4자리 숫자를 입력하세요</h1>
+    <input type="text" maxlength="4" id="passwordInput" />
+    <button onclick="checkPassword()">확인</button>
+    <div class="message" id="message"></div>
+  </div>
+
+  <!-- 정답 콘텐츠 섹션 -->
+  <div id="storySection">
+    그는 매일 이 길을 걸었습니다.
+
+    오전엔 정육점 냉장고 문을 여는 소리,
+    오후엔 나무 도마 위에 부딪히는 칼의 리듬,
+    그리고 저녁이면 늘,
+    이 조용한 골목을 혼자 걸어갔습니다.
+
+    가게 이름은 <span class="highlight">“델리카테세아 마리아”</span>.
+
+    간판은 작았고,
+    그 이름은 누구에게도 특별하지 않았지만—
+    그에겐 전부였습니다.
+
+    마리아는 그의 아내였어요.
+
+    함께 루마니아에서 이민 와서,
+    영어도, 길도, 사람도 낯설었던 토론토에서
+    가게 하나로 살아냈던 사람입니다.
+
+    그 여자가 떠난 뒤에도,
+    그는 간판을 내리지 않았어요.
+
+    대신 매일, 같은 시간에 문을 열고,
+    같은 시간에 문을 닫았고,
+    그리고 이 골목을,
+    조용히 지나갔습니다.
+
+    아무도 몰랐죠.
+
+    그가 매일 이 골목에 같은 말을 남기고 있었다는 걸.
+
+    🎧 <span class="highlight">(음성 톤이 낮아지며 반복된다)</span>
+
+    <div class="quote">오늘은… 좀 덜 아프네.</div>
+
+    그 말은 혼잣말 같았고,
+    기도 같기도 했고,
+    때론,
+    누구에겐 남기고 싶은 말 같기도 했습니다.
+
+    결국 그도 떠났습니다.
+    가게도 문을 닫았고,
+    간판은 떼어졌고,
+    이 거리엔 그를 아는 사람은 거의 남지 않았습니다.
+
+    하지만 이 벽 아래,
+    그가 매일 지나던 이 길 위엔
+    그의 말 한 줄이 조각처럼 남아 있습니다.
+
+    <div class="quote">오늘은 좀 덜 아프네.</div>
+  </div>
+
+  <script>
+    function checkPassword() {
+      const input = document.getElementById("passwordInput").value;
+      const message = document.getElementById("message");
+      const passwordSection = document.getElementById("passwordSection");
+      const storySection = document.getElementById("storySection");
+
+      if (input === "1234") {
+        passwordSection.style.display = "none";
+        storySection.style.display = "block";
+      } else {
+        message.textContent = "❌ 틀렸습니다. 다시 시도하세요.";
+      }
+    }
+  </script>
+</body>
+</html>
